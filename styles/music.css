@@ -1,0 +1,604 @@
+.music-page {
+  background: #050505;
+  color: #fff;
+  padding-top: 88px;
+}
+
+
+/* ======================================
+   HERO
+====================================== */
+
+.music-hero {
+  position: relative;
+
+  min-height: 82vh;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    url("/assets/images/stage-performance.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+}
+
+.music-hero-content {
+  width: min(92%, 1300px);
+
+  margin: auto;
+
+  padding: 3rem 0;
+}
+
+.music-kicker {
+  color: #d4a85f;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.3em;
+
+  font-size: 0.85rem;
+
+  margin-bottom: 1rem;
+}
+
+.music-hero h1 {
+  max-width: 720px;
+
+  font-size: clamp(3rem, 7vw, 5.5rem);
+
+  line-height: 0.95;
+
+  color: #d4a85f;
+
+  font-weight: 400;
+}
+
+.music-script {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+
+  font-style: italic;
+
+  margin: 1.5rem 0;
+
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.music-hero-text {
+  max-width: 550px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+}
+
+.music-hero-actions {
+  display: flex;
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.music-primary-btn,
+.music-secondary-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding: 1rem 1.8rem;
+
+  border-radius: 8px;
+
+  font-weight: 600;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+  text-decoration: none;
+}
+
+.music-primary-btn {
+  background: #d4a85f;
+
+  color: #000;
+}
+
+.music-secondary-btn {
+  border: 1px solid rgba(212, 168, 95, 0.5);
+
+  color: #fff;
+}
+
+.music-primary-btn:hover,
+.music-secondary-btn:hover {
+  transform: translateY(-2px);
+
+  opacity: 0.9;
+}
+
+
+/* ======================================
+   GENERAL
+====================================== */
+
+.music-section {
+  width: min(92%, 1300px);
+
+  margin: auto;
+
+  padding: 4rem 0;
+}
+
+.music-section h2 {
+  font-size: 2rem;
+
+  font-weight: 500;
+
+  color: #d4a85f;
+
+  margin-bottom: 2rem;
+}
+
+.section-heading-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 2rem;
+}
+
+.section-heading-row h2 {
+  margin-bottom: 0;
+}
+
+.section-link {
+  display: inline-flex;
+
+  gap: 0.5rem;
+
+  align-items: center;
+
+  color: #d4a85f;
+
+  text-transform: uppercase;
+
+  font-size: 0.85rem;
+
+  text-decoration: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.section-link:hover {
+  opacity: 0.75;
+}
+
+
+/* ======================================
+   STREAM
+====================================== */
+
+.platform-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: 1rem;
+}
+
+.platform-card {
+  border: 1px solid rgba(212, 168, 95, 0.25);
+
+  border-radius: 12px;
+
+  padding: 2rem 1rem;
+
+  text-align: center;
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease;
+
+  text-decoration: none;
+
+  color: #fff;
+}
+
+.platform-card:hover {
+  border-color: #d4a85f;
+
+  transform: translateY(-4px);
+}
+
+.platform-icon {
+  font-size: 3rem;
+
+  color: #d4a85f;
+
+  display: block;
+
+  margin-bottom: 1rem;
+}
+
+.platform-card h3 {
+  font-size: 1.3rem;
+}
+
+.platform-card p {
+  color: rgba(255, 255, 255, 0.65);
+
+  margin: 0.7rem 0 1.2rem;
+}
+
+.platform-button {
+  display: inline-block;
+
+  padding: 0.8rem 1.3rem;
+
+  background: #d4a85f;
+
+  color: #000;
+
+  border-radius: 6px;
+
+  font-weight: 600;
+}
+
+
+/* ======================================
+   RELEASES
+====================================== */
+
+.release-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 1rem;
+}
+
+.release-card {
+  overflow: hidden;
+}
+
+.release-image {
+  position: relative;
+
+  aspect-ratio: 1 / 1;
+
+  background-size: cover;
+
+  background-position: center;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.play-button {
+  position: absolute;
+
+  bottom: 1rem;
+
+  left: 1rem;
+
+  width: 70px;
+
+  height: 70px;
+
+  border-radius: 50%;
+
+  border: 2px solid #d4a85f;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  color: #d4a85f;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.play-button:hover {
+  background: rgba(212, 168, 95, 0.2);
+
+  transform: scale(1.05);
+}
+
+.release-card h3,
+.video-card h3 {
+  font-size: 1.8rem;
+
+  margin-top: 0.8rem;
+
+  font-weight: 400;
+}
+
+.release-card p,
+.video-card p {
+  color: rgba(255, 255, 255, 0.6);
+
+  margin-top: 0.25rem;
+}
+
+.listen-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.4rem;
+
+  margin-top: 0.7rem;
+
+  color: #d4a85f;
+
+  text-transform: uppercase;
+
+  font-size: 0.85rem;
+
+  text-decoration: none;
+}
+
+.listen-link:hover {
+  opacity: 0.75;
+}
+
+
+/* ======================================
+   MUSIC VIDEOS
+====================================== */
+
+.video-grid {
+  display: grid;
+
+  /*
+    Two videos for now.
+    When more videos are added,
+    this can easily be changed back
+    to repeat(4, 1fr).
+  */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 2rem;
+}
+
+.video-card {
+  overflow: hidden;
+
+  max-width: 100%;
+}
+
+.video-image {
+  position: relative;
+
+  aspect-ratio: 16 / 9;
+
+  background-size: cover;
+
+  background-position: center;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.play-button.small {
+  width: 58px;
+
+  height: 58px;
+}
+
+
+/* ======================================
+   JOIN THE JOURNEY
+====================================== */
+
+.music-join {
+  width: min(92%, 1300px);
+
+  margin: 5rem auto;
+
+  display: grid;
+
+  grid-template-columns: 380px 1fr;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.85),
+      rgba(0, 0, 0, 0.65)
+    );
+
+  border: 1px solid rgba(212, 168, 95, 0.15);
+
+  overflow: hidden;
+}
+
+.music-join-image {
+  background:
+    url("/assets/images/sochie-hero.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+
+  min-height: 320px;
+}
+
+.music-join-content {
+  padding: 3rem;
+}
+
+.music-join-content h2 {
+  font-size: 3rem;
+
+  color: #d4a85f;
+
+  margin: 0;
+}
+
+.music-join-content > p {
+  color: rgba(255, 255, 255, 0.7);
+
+  max-width: 600px;
+
+  margin: 1rem 0 2rem;
+}
+
+.music-join-form {
+  display: flex;
+
+  width: 100%;
+}
+
+.music-join-form input {
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 1rem;
+
+  border: none;
+
+  outline: none;
+
+  font: inherit;
+}
+
+.music-join-form button {
+  padding: 0 2rem;
+
+  background: #d4a85f;
+
+  color: #000;
+
+  border: none;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+.music-join-form button:hover {
+  opacity: 0.9;
+}
+
+.music-join-form button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+.music-join-message {
+  margin-top: 1rem !important;
+
+  color: #d4a85f !important;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+}
+
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+
+@media (max-width: 1000px) {
+
+  .platform-grid,
+  .release-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .music-join {
+    grid-template-columns: 1fr;
+  }
+
+  .music-join-image {
+    min-height: 280px;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .platform-grid,
+  .release-grid,
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-hero h1 {
+    font-size: 3rem;
+  }
+
+  .music-hero-actions {
+    flex-direction: column;
+  }
+
+  .music-primary-btn,
+  .music-secondary-btn {
+    justify-content: center;
+  }
+
+  .section-heading-row {
+    align-items: flex-start;
+
+    gap: 1rem;
+
+    flex-direction: column;
+  }
+
+  .music-join-content {
+    padding: 2rem;
+  }
+
+  .music-join-content h2 {
+    font-size: 2.2rem;
+  }
+
+  .music-join-form {
+    flex-direction: column;
+
+    gap: 0.75rem;
+  }
+
+  .music-join-form input {
+    padding: 1rem;
+  }
+
+  .music-join-form button {
+    padding: 1rem;
+  }
+}

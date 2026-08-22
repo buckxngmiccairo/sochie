@@ -1,0 +1,869 @@
+.contact-page {
+  background: #080604;
+  color: #f5f5f5;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ======================================
+   HERO
+====================================== */
+
+.contact-hero {
+  position: relative;
+  min-height: 100vh;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.75) 45%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    url("/assets/images/contact-hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+
+  padding: 140px 5% 80px;
+}
+
+.contact-hero-content {
+  /*
+    Wider container so the four contact cards
+    have enough room to sit on one line.
+  */
+  width: min(1250px, 100%);
+
+  position: relative;
+  z-index: 2;
+}
+
+.contact-kicker {
+  color: #d4a85f;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  font-size: 1rem;
+
+  margin-bottom: 1rem;
+}
+
+.contact-hero h1 {
+  font-size: 5rem;
+
+  line-height: 1;
+
+  font-weight: 300;
+
+  margin: 0 0 1rem;
+
+  max-width: 720px;
+}
+
+.contact-script {
+  color: #d4a85f;
+
+  font-size: 2.6rem;
+
+  font-family: cursive;
+
+  line-height: 1.2;
+
+  margin: 0 0 2rem;
+
+  max-width: 850px;
+}
+
+.contact-hero-text {
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 1.15rem;
+
+  line-height: 1.8;
+
+  max-width: 700px;
+
+  margin: 0 0 1rem;
+}
+
+
+/* ======================================
+   CONTACT INFO
+====================================== */
+
+.contact-info-row {
+  display: grid;
+
+  /*
+    Four equal columns on desktop.
+    Because the hero container is now wider,
+    the email and booking addresses have room.
+  */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+
+  margin-top: 4rem;
+}
+
+.contact-info-card {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  padding: 1.1rem 1rem;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(212, 168, 95, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  overflow: hidden;
+
+  min-height: 100px;
+}
+
+.contact-info-card > span {
+  flex: 0 0 auto;
+
+  width: 30px;
+
+  color: #d4a85f;
+
+  font-size: 1.45rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.contact-info-card > div {
+  min-width: 0;
+
+  flex: 1;
+}
+
+.contact-info-card h3 {
+  color: #d4a85f;
+
+  margin: 0 0 0.35rem;
+
+  text-transform: uppercase;
+
+  font-size: 0.82rem;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.05em;
+}
+
+.contact-info-card p {
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 0.9rem;
+
+  line-height: 1.35;
+
+  margin: 0;
+
+  /*
+    Prevent ugly character-by-character wrapping.
+  */
+  overflow-wrap: normal;
+
+  word-break: normal;
+
+  white-space: normal;
+}
+
+
+/* ======================================
+   MAIN
+====================================== */
+
+.contact-main {
+  width: min(1300px, 92%);
+
+  margin: 80px auto;
+
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 2rem;
+
+  align-items: stretch;
+}
+
+.message-card,
+.booking-card {
+  background: #0f0d0b;
+
+  border: 1px solid rgba(212, 168, 95, 0.2);
+
+  border-radius: 18px;
+
+  padding: 2rem;
+
+  min-width: 0;
+}
+
+.message-card h2,
+.booking-card h2 {
+  font-size: 2.5rem;
+
+  color: #d4a85f;
+
+  font-weight: 300;
+
+  line-height: 1.15;
+
+  margin: 0 0 1rem;
+}
+
+.message-card > p,
+.booking-card > p {
+  color: rgba(255, 255, 255, 0.75);
+
+  line-height: 1.8;
+
+  margin: 0 0 1rem;
+}
+
+
+/* ======================================
+   FORM
+====================================== */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  margin-top: 2rem;
+}
+
+.message-card input,
+.message-card select,
+.message-card textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  background: #14110d;
+
+  border: 1px solid rgba(212, 168, 95, 0.2);
+
+  color: #fff;
+
+  padding: 1rem;
+
+  border-radius: 10px;
+
+  outline: none;
+
+  margin: 0 0 1rem;
+
+  font: inherit;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.message-card input:focus,
+.message-card select:focus,
+.message-card textarea:focus {
+  border-color: rgba(212, 168, 95, 0.75);
+
+  box-shadow: 0 0 0 3px rgba(212, 168, 95, 0.08);
+}
+
+.message-card input::placeholder,
+.message-card textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.message-card select {
+  cursor: pointer;
+}
+
+.message-card textarea {
+  min-height: 180px;
+
+  resize: vertical;
+
+  line-height: 1.6;
+}
+
+.message-card button {
+  width: 100%;
+
+  border: none;
+
+  background: #d4a85f;
+
+  color: #000;
+
+  padding: 1rem;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 0.6rem;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    background 0.3s ease;
+}
+
+.message-card button:hover {
+  transform: translateY(-3px);
+
+  background: #e0b76b;
+}
+
+.message-card button:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  transform: none;
+}
+
+
+/* ======================================
+   FORM STATUS MESSAGES
+====================================== */
+
+.contact-success-message,
+.contact-error-message {
+  padding: 0.85rem 1rem;
+
+  border-radius: 8px;
+
+  margin: 0 0 1rem;
+
+  font-size: 0.9rem;
+
+  line-height: 1.5;
+}
+
+.contact-success-message {
+  background: rgba(50, 180, 100, 0.08);
+
+  border: 1px solid rgba(50, 180, 100, 0.3);
+
+  color: #9ee6b5;
+}
+
+.contact-error-message {
+  background: rgba(220, 70, 70, 0.08);
+
+  border: 1px solid rgba(220, 70, 70, 0.3);
+
+  color: #ffb0b0;
+}
+
+
+/* ======================================
+   BOOKING
+====================================== */
+
+.booking-list {
+  margin: 2rem 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+.booking-item {
+  display: flex;
+
+  gap: 1rem;
+
+  min-width: 0;
+}
+
+.booking-item > span {
+  color: #d4a85f;
+
+  font-size: 1.7rem;
+
+  flex: 0 0 auto;
+
+  display: flex;
+
+  align-items: flex-start;
+}
+
+.booking-item > div {
+  min-width: 0;
+}
+
+.booking-item h3 {
+  color: #d4a85f;
+
+  margin: 0 0 0.3rem;
+
+  text-transform: uppercase;
+
+  font-size: 1rem;
+
+  line-height: 1.3;
+}
+
+.booking-item p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  line-height: 1.5;
+}
+
+.book-now-btn {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  background: #d4a85f;
+
+  color: #000;
+
+  padding: 1rem 2rem;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+
+  text-decoration: none;
+}
+
+.book-now-btn:hover {
+  transform: translateY(-3px);
+
+  background: #e0b76b;
+}
+
+.book-now-btn:focus-visible {
+  outline: 2px solid #fff;
+
+  outline-offset: 3px;
+}
+
+
+/* ======================================
+   CONNECT
+====================================== */
+
+.contact-connect {
+  width: min(1300px, 92%);
+
+  margin: 0 auto 100px;
+
+  display: grid;
+
+  grid-template-columns: 0.95fr 1.05fr;
+
+  gap: 2rem;
+
+  align-items: stretch;
+}
+
+.contact-connect-image {
+  min-height: 520px;
+
+  border-radius: 18px;
+
+  background:
+    url("/assets/images/contact-sunset.jpg");
+
+  background-size: cover;
+
+  background-position: center;
+}
+
+.contact-connect-content {
+  min-width: 0;
+}
+
+.contact-connect-content h2 {
+  color: #d4a85f;
+
+  font-size: 3rem;
+
+  font-weight: 300;
+
+  line-height: 1.1;
+
+  margin: 0 0 0.8rem;
+}
+
+.contact-connect-content > p {
+  color: rgba(255, 255, 255, 0.7);
+
+  margin: 0 0 2rem;
+}
+
+
+/* ======================================
+   SOCIALS
+====================================== */
+
+.social-grid {
+  display: grid;
+
+  /*
+    There are currently 3 social links:
+    Instagram, TikTok and YouTube.
+  */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 1rem;
+
+  width: 100%;
+}
+
+.social-card {
+  min-width: 0;
+
+  background: #0f0d0b;
+
+  border: 1px solid rgba(212, 168, 95, 0.2);
+
+  border-radius: 14px;
+
+  padding: 1.5rem 1rem;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+
+  text-decoration: none;
+
+  display: block;
+}
+
+.social-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #d4a85f;
+
+  background: #12100d;
+}
+
+.social-card span {
+  font-size: 2rem;
+
+  color: #d4a85f;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.social-card h3 {
+  margin: 1rem 0 0;
+
+  color: #d4a85f;
+
+  font-size: 1rem;
+}
+
+.social-card p {
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 0.9rem;
+
+  margin: 0.5rem 0 0;
+
+  overflow-wrap: anywhere;
+}
+
+
+/* ======================================
+   SPOTIFY
+====================================== */
+
+.spotify-banner {
+  margin-top: 2rem;
+
+  background: #0f0d0b;
+
+  border: 1px solid rgba(212, 168, 95, 0.2);
+
+  border-radius: 18px;
+
+  padding: 2rem;
+
+  display: grid;
+
+  grid-template-columns: auto 1fr auto;
+
+  align-items: center;
+
+  gap: 1.5rem;
+
+  min-width: 0;
+}
+
+.spotify-banner > span {
+  font-size: 3rem;
+
+  color: #1db954;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex: 0 0 auto;
+}
+
+.spotify-banner > div {
+  min-width: 0;
+}
+
+.spotify-banner h3 {
+  color: #d4a85f;
+
+  margin: 0 0 0.4rem;
+
+  font-size: 1.1rem;
+}
+
+.spotify-banner p {
+  color: rgba(255, 255, 255, 0.7);
+
+  margin: 0;
+
+  line-height: 1.5;
+}
+
+.spotify-banner a {
+  background: #d4a85f;
+
+  color: #000;
+
+  padding: 1rem 1.6rem;
+
+  border-radius: 10px;
+
+  font-weight: 700;
+
+  display: inline-flex;
+
+  gap: 0.5rem;
+
+  align-items: center;
+
+  justify-content: center;
+
+  white-space: nowrap;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.spotify-banner a:hover {
+  transform: translateY(-3px);
+
+  background: #e0b76b;
+}
+
+
+/* ======================================
+   RESPONSIVE — LARGE TABLET
+====================================== */
+
+@media (max-width: 1100px) {
+  .contact-hero-content {
+    width: 100%;
+  }
+
+  .contact-info-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* ======================================
+   RESPONSIVE — TABLET
+====================================== */
+
+@media (max-width: 1000px) {
+  .contact-main,
+  .contact-connect {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-connect-image {
+    min-height: 420px;
+  }
+
+  .spotify-banner {
+    grid-template-columns: auto 1fr auto;
+  }
+}
+
+
+/* ======================================
+   RESPONSIVE — MOBILE
+====================================== */
+
+@media (max-width: 700px) {
+  .contact-hero {
+    min-height: auto;
+
+    padding: 120px 6% 70px;
+  }
+
+  .contact-hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .contact-script {
+    font-size: 2rem;
+  }
+
+  .contact-hero-text {
+    font-size: 1rem;
+
+    line-height: 1.7;
+  }
+
+  .contact-info-row {
+    grid-template-columns: 1fr;
+
+    margin-top: 3rem;
+  }
+
+  .contact-info-card {
+    min-height: auto;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .spotify-banner {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    justify-items: center;
+  }
+
+  .spotify-banner a {
+    width: 100%;
+  }
+}
+
+
+/* ======================================
+   RESPONSIVE — SMALL MOBILE
+====================================== */
+
+@media (max-width: 480px) {
+  .contact-hero {
+    padding-left: 5%;
+
+    padding-right: 5%;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .contact-script {
+    font-size: 1.7rem;
+  }
+
+  .contact-main,
+  .contact-connect {
+    width: 92%;
+
+    margin-top: 60px;
+  }
+
+  .message-card,
+  .booking-card {
+    padding: 1.4rem;
+  }
+
+  .message-card h2,
+  .booking-card h2 {
+    font-size: 2rem;
+  }
+
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-connect-image {
+    min-height: 350px;
+  }
+
+  .spotify-banner {
+    padding: 1.5rem;
+  }
+}

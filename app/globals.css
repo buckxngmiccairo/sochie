@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+:root {
+  --background: #080604;
+  --foreground: #f5f5f5;
+  --gold: #d4a85f;
+  --gold-light: #f2d39b;
+  --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}

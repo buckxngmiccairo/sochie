@@ -1,0 +1,242 @@
+/* =========================================================
+   SUPREME PALACE MANAGEMENT
+   Django Admin Custom Theme
+========================================================= */
+
+:root {
+    --spm-purple: #6a1b9a;
+    --spm-purple-dark: #4a126b;
+    --spm-purple-light: #8e44ad;
+    --spm-gold: #d4a85d;
+    --spm-gold-light: #e4bd7a;
+    --spm-white: #ffffff;
+    --spm-dark: #17121b;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+#header {
+    background: var(--spm-purple);
+    color: var(--spm-white);
+}
+
+#branding h1,
+#branding h1 a,
+#site-name a {
+    color: var(--spm-white);
+}
+
+#site-name a {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+
+/* =========================================================
+   USER TOOLS
+========================================================= */
+
+#user-tools {
+    color: var(--spm-white);
+}
+
+#user-tools a {
+    color: var(--spm-gold-light);
+}
+
+#user-tools a:hover {
+    color: var(--spm-white);
+}
+
+
+/* =========================================================
+   MAIN LINKS
+========================================================= */
+
+a:link,
+a:visited {
+    color: var(--spm-purple);
+}
+
+a:hover {
+    color: var(--spm-purple-light);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+    background: var(--spm-purple);
+    color: var(--spm-white);
+}
+
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover,
+.submit-row input:hover,
+a.button:hover {
+    background: var(--spm-purple-light);
+}
+
+
+/* =========================================================
+   SAVE / ACTION BUTTONS
+========================================================= */
+
+.submit-row input.default {
+    background: var(--spm-purple);
+}
+
+.submit-row input.default:hover {
+    background: var(--spm-purple-light);
+}
+
+
+/* =========================================================
+   MODULE HEADINGS
+========================================================= */
+
+.module h2,
+.module caption {
+    background: var(--spm-purple);
+    color: var(--spm-white);
+}
+
+
+/* =========================================================
+   TABLE HEADERS
+========================================================= */
+
+#result_list thead th {
+    background: var(--spm-purple);
+    color: var(--spm-white);
+}
+
+#result_list thead th a {
+    color: var(--spm-white);
+}
+
+
+/* =========================================================
+   SELECTED / HIGHLIGHTED ITEMS
+========================================================= */
+
+.selected {
+    background: rgba(106, 27, 154, 0.08);
+}
+
+
+/* =========================================================
+   BREADCRUMBS
+========================================================= */
+
+div.breadcrumbs {
+    background: var(--spm-purple-dark);
+    color: var(--spm-white);
+}
+
+div.breadcrumbs a {
+    color: var(--spm-gold-light);
+}
+
+div.breadcrumbs a:hover {
+    color: var(--spm-white);
+}
+
+
+/* =========================================================
+   DASHBOARD MODULES
+========================================================= */
+
+.dashboard .module h2 {
+    background: var(--spm-purple);
+}
+
+.dashboard .module table th {
+    color: var(--spm-purple);
+}
+
+
+/* =========================================================
+   FORM FOCUS
+========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--spm-purple);
+}
+
+
+/* =========================================================
+   CHECKBOXES / LINKS
+========================================================= */
+
+.selector-chosen h2 {
+    background: var(--spm-purple);
+}
+
+
+/* =========================================================
+   OBJECT TOOLS
+========================================================= */
+
+.object-tools a {
+    background: var(--spm-purple);
+}
+
+.object-tools a:hover {
+    background: var(--spm-purple-light);
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+.deletelink {
+    background: #ba2121 !important;
+}
+
+.deletelink:hover {
+    background: #a51d1d !important;
+}
+
+
+/* =========================================================
+   GOLD ACCENTS
+========================================================= */
+
+.module h2::first-letter {
+    color: var(--spm-gold);
+}
+
+.dashboard .module caption {
+    border-bottom: 2px solid var(--spm-gold);
+}
+
+
+/* =========================================================
+   FOOTER / SUBTLE BRANDING
+========================================================= */
+
+#footer {
+    color: #777;
+}
+
+#footer::after {
+    content: "Supreme Palace Management";
+    display: block;
+    margin-top: 8px;
+    color: var(--spm-gold);
+    font-weight: 600;
+}
