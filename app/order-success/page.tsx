@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -17,7 +17,7 @@ import { useCart } from "@/app/context/CartContext";
 
 import "../../styles/store.css";
 
-export default function OrderSuccessPage() {
+function OrderSuccessContent() {
   const params = useSearchParams();
 
   const reference =
@@ -82,9 +82,7 @@ export default function OrderSuccessPage() {
         <Navbar />
 
         <main className="store-page">
-
           <section className="store-section">
-
             <div
               style={{
                 textAlign: "center",
@@ -103,11 +101,8 @@ export default function OrderSuccessPage() {
               >
                 Verifying payment...
               </h2>
-
             </div>
-
           </section>
-
         </main>
 
         <Footer />
@@ -121,9 +116,7 @@ export default function OrderSuccessPage() {
         <Navbar />
 
         <main className="store-page">
-
           <section className="store-section">
-
             <h2>
               Unable to verify payment.
             </h2>
@@ -134,9 +127,7 @@ export default function OrderSuccessPage() {
             >
               Return To Store
             </Link>
-
           </section>
-
         </main>
 
         <Footer />
@@ -149,7 +140,6 @@ export default function OrderSuccessPage() {
       <Navbar />
 
       <main className="store-page">
-
         <section
           className="store-section"
           style={{
@@ -158,7 +148,6 @@ export default function OrderSuccessPage() {
             margin: "0 auto",
           }}
         >
-
           <CheckCircle2
             size={90}
             color="#22c55e"
@@ -175,13 +164,9 @@ export default function OrderSuccessPage() {
           </h1>
 
           <p className="store-hero-text">
-
             Your payment has been verified.
-
             <br />
-
             Your order is now being processed.
-
           </p>
 
           <div
@@ -190,15 +175,10 @@ export default function OrderSuccessPage() {
               marginTop: "3rem",
             }}
           >
-
             <p>
-
               <strong>Order #</strong>
-
               <br />
-
               {orderNumber}
-
             </p>
 
             <p
@@ -206,15 +186,10 @@ export default function OrderSuccessPage() {
                 marginTop: "1.5rem",
               }}
             >
-
               <strong>Total Paid</strong>
-
               <br />
-
               ${total}
-
             </p>
-
           </div>
 
           <Link
@@ -226,12 +201,50 @@ export default function OrderSuccessPage() {
           >
             Continue Shopping
           </Link>
-
         </section>
-
       </main>
 
       <Footer />
     </>
+  );
+}
+
+export default function OrderSuccessPage() {
+  return (
+    <Suspense
+      fallback={
+        <>
+          <Navbar />
+
+          <main className="store-page">
+            <section className="store-section">
+              <div
+                style={{
+                  textAlign: "center",
+                  padding: "6rem 0",
+                }}
+              >
+                <Loader2
+                  size={60}
+                  className="animate-spin"
+                />
+
+                <h2
+                  style={{
+                    marginTop: "2rem",
+                  }}
+                >
+                  Loading order confirmation...
+                </h2>
+              </div>
+            </section>
+          </main>
+
+          <Footer />
+        </>
+      }
+    >
+      <OrderSuccessContent />
+    </Suspense>
   );
 }
