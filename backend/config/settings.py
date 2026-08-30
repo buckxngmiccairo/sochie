@@ -5,6 +5,7 @@ Django settings for config project.
 from pathlib import Path
 from decouple import config
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -23,7 +24,11 @@ DJANGO_ENV = config(
 
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
-    cast=lambda v: [host.strip() for host in v.split(",")]
+    cast=lambda v: [
+        host.strip()
+        for host in v.split(",")
+        if host.strip()
+    ],
 )
 
 
@@ -63,6 +68,8 @@ MIDDLEWARE = [
 
     "django.middleware.security.SecurityMiddleware",
 
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
     "corsheaders.middleware.CorsMiddleware",
 
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -81,21 +88,30 @@ MIDDLEWARE = [
 
 if DJANGO_ENV == "production":
 
+    # HTTPS
     SECURE_SSL_REDIRECT = True
 
+    # HTTP Strict Transport Security
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_PRELOAD = False
 
+    # Secure cookies
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
+    # Render / reverse proxy HTTPS detection
     SECURE_PROXY_SSL_HEADER = (
         "HTTP_X_FORWARDED_PROTO",
         "https",
     )
 
+    # Additional security headers
     SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
+
+    # Prevent browsers from framing the site
+    X_FRAME_OPTIONS = "DENY"
 
 
 # ==================================================
@@ -156,16 +172,28 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
@@ -197,6 +225,25 @@ MEDIA_ROOT = BASE_DIR / "media"
 
 
 # ==================================================
+# Static File Storage
+# ==================================================
+
+STORAGES = {
+    "default": {
+        "BACKEND": (
+            "django.core.files.storage.FileSystemStorage"
+        ),
+    },
+    "staticfiles": {
+        "BACKEND": (
+            "whitenoise.storage."
+            "CompressedManifestStaticFilesStorage"
+        ),
+    },
+}
+
+
+# ==================================================
 # Default Primary Key
 # ==================================================
 
@@ -211,12 +258,29 @@ CORS_ALLOWED_ORIGINS = [
     origin.strip()
     for origin in config(
         "CORS_ALLOWED_ORIGINS",
-        default="http://localhost:3000,http://127.0.0.1:3000",
+        default=(
+            "http://localhost:3000,"
+            "http://127.0.0.1:3000"
+        ),
     ).split(",")
     if origin.strip()
 ]
 
 CORS_ALLOW_CREDENTIALS = True
+
+
+# ==================================================
+# CSRF Trusted Origins
+# ==================================================
+
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in config(
+        "CSRF_TRUSTED_ORIGINS",
+        default="",
+    ).split(",")
+    if origin.strip()
+]
 
 
 # ==================================================
@@ -245,6 +309,11 @@ PAYSTACK_SECRET_KEY = config(
 PAYSTACK_CALLBACK_URL = config(
     "PAYSTACK_CALLBACK_URL"
 )
+
+
+# ==================================================
+# Frontend
+# ==================================================
 
 FRONTEND_URL = config(
     "FRONTEND_URL",
