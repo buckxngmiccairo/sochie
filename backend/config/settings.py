@@ -16,6 +16,11 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", cast=bool)
 
+DJANGO_ENV = config(
+    "DJANGO_ENV",
+    default="development",
+)
+
 ALLOWED_HOSTS = config(
     "ALLOWED_HOSTS",
     cast=lambda v: [host.strip() for host in v.split(",")]
@@ -70,6 +75,33 @@ MIDDLEWARE = [
 ]
 
 
+# ==================================================
+# Production Security
+# ==================================================
+
+if DJANGO_ENV == "production":
+
+    SECURE_SSL_REDIRECT = True
+
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+
+    SECURE_PROXY_SSL_HEADER = (
+        "HTTP_X_FORWARDED_PROTO",
+        "https",
+    )
+
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+
+
+# ==================================================
+# URLs
+# ==================================================
+
 ROOT_URLCONF = "config.urls"
 
 
@@ -106,8 +138,14 @@ DATABASES = {
         "NAME": config("DB_NAME"),
         "USER": config("DB_USER"),
         "PASSWORD": config("DB_PASSWORD"),
-        "HOST": config("DB_HOST", default="localhost"),
-        "PORT": config("DB_PORT", default="5432"),
+        "HOST": config(
+            "DB_HOST",
+            default="localhost",
+        ),
+        "PORT": config(
+            "DB_PORT",
+            default="5432",
+        ),
     }
 }
 
@@ -196,11 +234,17 @@ REST_FRAMEWORK = {
 # Paystack
 # ==================================================
 
-PAYSTACK_PUBLIC_KEY = config("PAYSTACK_PUBLIC_KEY")
+PAYSTACK_PUBLIC_KEY = config(
+    "PAYSTACK_PUBLIC_KEY"
+)
 
-PAYSTACK_SECRET_KEY = config("PAYSTACK_SECRET_KEY")
+PAYSTACK_SECRET_KEY = config(
+    "PAYSTACK_SECRET_KEY"
+)
 
-PAYSTACK_CALLBACK_URL = config("PAYSTACK_CALLBACK_URL")
+PAYSTACK_CALLBACK_URL = config(
+    "PAYSTACK_CALLBACK_URL"
+)
 
 FRONTEND_URL = config(
     "FRONTEND_URL",
