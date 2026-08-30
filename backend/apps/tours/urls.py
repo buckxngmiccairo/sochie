@@ -1,6 +1,17 @@
 from django.urls import path
-from . import views
+from .views import TourListView, TourDetailView
+
 
 urlpatterns = [
-    # Tour routes will go here.
+    path(
+        "",
+        TourListView.as_view(),
+        name="tour-list",
+    ),
+
+    path(
+        "<int:id>/",
+        TourDetailView.as_view(),
+        name="tour-detail",
+    ),
 ]
