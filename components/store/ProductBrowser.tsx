@@ -39,6 +39,24 @@ export default function ProductBrowser({
 
   /*
    * ================================
+   * SHOW FEATURED PRODUCTS
+   * ================================
+   *
+   * Featured products are only shown
+   * when viewing the complete store
+   * without a search.
+   *
+   * We also require at least four
+   * products before showing this section.
+   */
+
+  const showFeatured =
+    selectedCategory === "all" &&
+    search.trim() === "" &&
+    featuredProducts.length >= 4;
+
+  /*
+   * ================================
    * FILTER PRODUCTS
    * ================================
    */
@@ -85,18 +103,15 @@ export default function ProductBrowser({
     });
 
     /*
-     * When viewing the complete store without
-     * a search, the first four products are
-     * already displayed in Featured Products.
+     * Only remove the featured products
+     * from the main grid when the Featured
+     * Products section is actually visible.
      *
-     * Remove them from the main grid so they
-     * don't appear twice.
+     * This is important when there are fewer
+     * than four products.
      */
 
-    if (
-      selectedCategory === "all" &&
-      searchTerm === ""
-    ) {
+    if (showFeatured) {
       const featuredIds = new Set(
         featuredProducts.map(
           (product) => product.id
@@ -109,18 +124,19 @@ export default function ProductBrowser({
       );
     }
 
+    /*
+     * If Featured Products is not displayed,
+     * show all matching products normally.
+     */
+
     return filtered;
   }, [
     products,
     search,
     selectedCategory,
     featuredProducts,
+    showFeatured,
   ]);
-
-  const showFeatured =
-    selectedCategory === "all" &&
-    search.trim() === "" &&
-    featuredProducts.length >= 4;
 
   return (
     <>
