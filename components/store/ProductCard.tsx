@@ -16,6 +16,13 @@ function getMediaUrl(image: string | null): string | null {
     image.startsWith("http://") ||
     image.startsWith("https://")
   ) {
+    if (image.includes("res.cloudinary.com")) {
+      return image.replace(
+        "/image/upload/",
+        "/image/upload/w_600,q_auto,f_auto/"
+      );
+    }
+
     return image;
   }
 
