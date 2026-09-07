@@ -7,3 +7,5 @@ requests==2.34.2
 python-decouple==3.8
 gunicorn
 whitenoise
+cloudinary==1.46.2
+django-cloudinary-storage==0.3.0
