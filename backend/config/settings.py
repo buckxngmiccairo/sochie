@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Cloudinary
+    "cloudinary_storage",
+    "cloudinary",
+
     # Third Party Apps
     "rest_framework",
     "corsheaders",
